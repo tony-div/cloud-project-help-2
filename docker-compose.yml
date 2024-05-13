@@ -1,0 +1,14 @@
+version: '3.7'
+
+services:
+  db:
+    image: db:latest
+    ports:
+      - "3307:3306"
+      
+  web:
+    image: web-server:latest
+    ports:
+      - "80:3000"
+    depends_on:
+      - db

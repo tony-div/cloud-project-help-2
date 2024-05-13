@@ -1,0 +1,23 @@
+FROM node:14
+
+WORKDIR /usr/src/app
+
+
+COPY package*.json ./
+
+
+RUN npm install
+
+COPY . .
+
+
+EXPOSE 3000
+
+
+CMD ["npm", "start"]
+
+# docker build -t web-server -f docker .
+# you should restart the web server from docker desktop after database is ready or the web server will crash
+# a log like this indicates that database is ready
+# [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060, socket: /var/run/mysqld/mysqlx.sock
+
